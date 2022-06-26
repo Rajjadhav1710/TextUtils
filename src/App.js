@@ -7,6 +7,14 @@ import Alert from './components/Alert';
 
 import {useState} from 'react';
 
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
 function App() {
   const [mode, setMode] = useState('light');
   const [alert, setAlert] = useState(null);//alert is object
@@ -47,15 +55,20 @@ function App() {
 
   return (
     <>
-      <Navbar title="TextUtils" aboutText="About TextUtils" mode={mode} toggleMode={toggleMode}/>
+      <Router>
 
-      <Alert alert={alert}/>
+        <Navbar title="TextUtils" aboutText="About TextUtils" mode={mode} toggleMode={toggleMode} />
 
-      <div className="container my-3">
-        <TextForm heading="Enter the text to analyze" mode={mode} showAlert={showAlert}/>
-        {/* <About/> */}
-      </div>
+        <Alert alert={alert} />
 
+        <div className="container my-3">
+          <Routes>
+            <Route path="/about" element={<About />}/>            
+            <Route path="/" element={<TextForm heading="Enter the text to analyze" mode={mode} showAlert={showAlert} />}/>            
+          </Routes>
+        </div>
+
+      </Router>
     </>
 
   );

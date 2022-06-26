@@ -52,7 +52,7 @@ export default function TextForm(props) {
                 <h1>{props.heading}</h1>
                 <div className="mb-3">
                     <label htmlFor="myBox" className="form-label">👇🏼</label>
-                    <textarea style={props.mode=="dark"?{backgroundColor:"rgb(33, 37, 41)",color:"white"}:{}} className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+                    <textarea style={props.mode==="dark"?{backgroundColor:"rgb(33, 37, 41)",color:"white"}:{}} className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
                 </div>
                 <button className="btn btn-primary my-2 mx-2" onClick={handleUpClick}>Convert to uppercase</button> 
                 <button className="btn btn-primary my-2 mx-2" onClick={handleLowerClick}>Convert to lowercase</button>
